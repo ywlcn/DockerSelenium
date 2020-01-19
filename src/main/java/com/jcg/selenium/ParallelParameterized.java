@@ -33,7 +33,7 @@ public class ParallelParameterized extends Parameterized {
         }
     }
 
-    public ParallelParameterized(Class klass) throws Throwable {
+    public ParallelParameterized(Class<?> klass) throws Throwable {
         super(klass);
         setScheduler(new ThreadPoolScheduler());
     }
