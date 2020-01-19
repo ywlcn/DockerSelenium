@@ -11,7 +11,15 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -29,8 +37,9 @@ public class TestBase {
     @Parameterized.Parameters
     public static MutableCapabilities[] getBrowserCapabilities() {
         return new MutableCapabilities[]{
-                new ChromeOptions(),
-                new FirefoxOptions()
+                new ChromeOptions()
+                // ,
+                // new FirefoxOptions()
         };
     }
 
@@ -54,5 +63,31 @@ public class TestBase {
     public static void remove() {
         driver.remove();
     }
+
+    protected void copy(File fromFile, File toFile, boolean overwrite) throws IOException {
+        if (fromFile == null) {
+            throw new IllegalArgumentException("param[fromFile] is null");
+        }
+        if (toFile == null) {
+            throw new IllegalArgumentException("param[fromFile] is null");
+        }
+        if (!fromFile.exists()) {
+            throw new FileNotFoundException("There is not fromFile[" + fromFile.getAbsolutePath() + "].");
+        }
+        if (toFile.exists() && !overwrite) {
+            throw new FileAlreadyExistsException(toFile.getAbsolutePath());
+        }
+
+        try (BufferedInputStream in = new BufferedInputStream(new FileInputStream(fromFile))) {
+            try (BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(toFile))) {
+                byte[] buff = new byte[1024];
+                for (int size = in.read(buff); size >= 0; size = in.read(buff)) {
+                    out.write(buff, 0, size);
+                }
+            }
+        }
+    }
+
+
 
 }
