@@ -31,12 +31,6 @@ public class GoogleSearchTest extends TestBase {
         webDriver.navigate().to("http://www.google.com");
         Assert.assertEquals("Google", webDriver.getTitle());
 
-        File srcFile = ((TakesScreenshot)webDriver).getScreenshotAs(OutputType.FILE);
-        this.copy(srcFile, new File("./" + capabilities.getBrowserName() + "/screenshot_" + String.valueOf(new Date().getTime()) + ".png"), false);
-        
-        System.out.print(capabilities.toString());
-
-        // FileUtils.copy(srcFile, new File("./screenshot_" + String.valueOf(new Date().getTime()) + ".png"), true);
 
     }
 

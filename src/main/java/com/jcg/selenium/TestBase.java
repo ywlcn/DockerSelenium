@@ -19,7 +19,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.FileAlreadyExistsException;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(ParallelParameterized.class)
@@ -36,9 +35,7 @@ public class TestBase {
     @Parameterized.Parameters
     public static MutableCapabilities[] getBrowserCapabilities() {
         return new MutableCapabilities[]{
-                new ChromeOptions(),
-                 new FirefoxOptions()
-        };
+       };
     }
 
     public TestBase(MutableCapabilities capabilities) {
