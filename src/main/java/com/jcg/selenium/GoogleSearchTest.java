@@ -1,19 +1,11 @@
 package com.jcg.selenium;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Date;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.MutableCapabilities;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-// import org.openqa.selenium.chrome.ChromeOptions;
 
 public class GoogleSearchTest extends TestBase {
 

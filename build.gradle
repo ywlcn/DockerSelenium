@@ -1,6 +1,7 @@
 group 'com.jcg'
 version '1.0-SNAPSHOT'
 
+apply plugin: 'java-library'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
@@ -11,10 +12,11 @@ repositories {
 }
 
 dependencies {
-    compile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.141.59'
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
+    api group: 'junit', name: 'junit', version: '4.12'
+    api group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    api group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.141.59'
+    api group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
+    api group: 'org.seleniumhq.selenium', name: 'selenium-edge-driver', version: '3.141.59'
 
 }
 
@@ -35,12 +37,12 @@ jar {
 
 
 task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
+    archiveClassifier = 'sources'
     from sourceSets.main.allSource
 }
  
 task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
+    archiveClassifier = 'javadoc'
     from javadoc.destinationDir
 }
  

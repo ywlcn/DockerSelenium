@@ -1,11 +1,11 @@
-arguments=
-auto.sync=false
+arguments=--init-script D\:\\Tools-Common\\VSCode\\data\\user-data\\User\\globalStorage\\redhat.java\\1.16.0\\config_win\\org.eclipse.osgi\\53\\0\\.cp\\gradle\\init\\init.gradle --init-script D\:\\Tools-Common\\VSCode\\data\\user-data\\User\\globalStorage\\redhat.java\\1.16.0\\config_win\\org.eclipse.osgi\\53\\0\\.cp\\gradle\\protobuf\\init.gradle
+auto.sync=true
 build.scans.enabled=false
-connection.gradle.distribution=GRADLE_DISTRIBUTION(LOCAL_INSTALLATION(D\:\\JavaTools\\gradle-5.6.2))
+connection.gradle.distribution=GRADLE_DISTRIBUTION(LOCAL_INSTALLATION(D\:\\Tools-Java\\gradle-7.6))
 connection.project.dir=
 eclipse.preferences.version=1
 gradle.user.home=
-java.home=D\:/Program Files/Java/jdk1.8.0_121
+java.home=D\:/Tools-Java/jdk-17.0.5
 jvm.arguments=
 offline.mode=false
 override.workspace.settings=true

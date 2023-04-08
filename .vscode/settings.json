@@ -1,0 +1,13 @@
+{
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.import.gradle.java.home": "D:\\Tools-Java\\jdk-17.0.5",
+    "java.import.gradle.home": "D:\\Tools-Java\\gradle-7.6",
+    "java.jdt.ls.java.home": "D:\\Tools-Java\\jdk-17.0.5",
+    "java.debug.settings.onBuildFailureProceed": true
+}
