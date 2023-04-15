@@ -2,6 +2,7 @@ group 'com.jcg'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java-library'
+apply plugin: 'application'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
@@ -18,6 +19,11 @@ dependencies {
     api group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
     api group: 'org.seleniumhq.selenium', name: 'selenium-edge-driver', version: '3.141.59'
 
+    api group: 'com.codeborne', name: 'selenide', version: '6.12.4'
+    api group: 'ch.qos.logback', name: 'logback-classic', version: '1.4.6'
+    api group: 'ch.qos.logback', name: 'logback-core', version: '1.4.6'
+
+
 }
 
 eclipse {
@@ -26,14 +32,22 @@ eclipse {
     }
 }
 
-jar {
-    manifest {  //incubating版本，以后版本可能会改API
-        attributes("Main-Class": "com.jcg.selenium.GoogleSearchTest")
-    }
-    from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
-    }
+ext {
+   javaMainClass = "com.jcg.selenium.ChromeHeadLessTest"
 }
+
+application {
+    mainClassName = javaMainClass
+}
+
+//jar {
+//    manifest {  //incubating版本，以后版本可能会改API
+//        attributes("Main-Class": "com.jcg.selenium.ChromeHeadLessTest")
+//    }
+//    from {
+//        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+//    }
+//}
 
 
 task sourcesJar(type: Jar, dependsOn: classes) {
